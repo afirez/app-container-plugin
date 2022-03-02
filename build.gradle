@@ -1,0 +1,55 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+//        maven { url 'https://mirrors.tencent.com/nexus/repository/maven-public/' }
+
+        google()
+
+        maven {
+            name = "GitHubPackages"
+            url "https://maven.pkg.github.com/tencent/shadow"
+            //一个只读账号兼容Github Packages暂时不支持匿名下载
+            //https://github.community/t/download-from-github-package-registry-without-authentication/14407
+            credentials {
+                username = 'readonlypat'
+                password = '\u0067hp_s3VOOZnLf1bTyvHWblPfaessrVYyEU4JdNbs'
+            }
+        }
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+
+        classpath "com.tencent.shadow.core:gradle-plugin:2.2.1"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+//        maven { url 'https://mirrors.tencent.com/nexus/repository/maven-public/' }
+
+        google()
+
+        maven {
+            name = "GitHubPackages"
+            url "https://maven.pkg.github.com/tencent/shadow"
+            //一个只读账号兼容Github Packages暂时不支持匿名下载
+            //https://github.community/t/download-from-github-package-registry-without-authentication/14407
+            credentials {
+                username = 'readonlypat'
+                password = '\u0067hp_s3VOOZnLf1bTyvHWblPfaessrVYyEU4JdNbs'
+            }
+        }
+
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
